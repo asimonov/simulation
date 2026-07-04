@@ -7,19 +7,20 @@
   <maintainer email="dharini@openrobotics.org">Dharini Dutia</maintainer>
   <license>Apache-2.0</license>
 
+  <buildtool_depend>ros_environment</buildtool_depend>
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>ign-cmake2</depend>
-  <depend>ign-plugin1</depend>
-  <depend>ign-common4</depend>
-  <depend>ign-gazebo6</depend>
-  <depend>ign-rendering6</depend>
-  <depend>ign-sensors6</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">ign-cmake2</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">ign-plugin1</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">ign-common4</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">ign-gazebo6</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">ign-rendering6</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">ign-sensors6</depend>
 
   <exec_depend>xacro</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
-    <gazebo_ros gazebo_plugin_path="${prefix}/lib"/>
+    <gazebo_ros condition="$ROS_DISTRO == 'humble'" gazebo_plugin_path="${prefix}/lib"/>
   </export>
 </package>
